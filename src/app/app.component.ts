@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 /**
- * Importing the HttpClient from Angular Common Http and
  * Importing the service that provides the data i.e. weather.service 
  */
 
@@ -25,10 +24,12 @@ export class AppComponent implements OnInit {
 
   }
   weatherData : any;
+  errorMessage: any;
 
    ngOnInit(){
      this.weatherDataService.getWeatherData()
-      .subscribe(data => this.weatherData = JSON.stringify(data,undefined, 4) )
+      .subscribe(data => this.weatherData = JSON.stringify(data,undefined, 4),
+                error => this.errorMessage = error         )
      
    }
 }
