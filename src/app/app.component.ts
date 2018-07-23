@@ -25,11 +25,20 @@ export class AppComponent implements OnInit {
   }
   weatherData : any;
   errorMessage: any;
+  city:string;
 
    ngOnInit(){
+     /**
+      * By default we are getting London's Data
+      */
      this.weatherDataService.getWeatherData()
       .subscribe(data => this.weatherData = JSON.stringify(data,undefined, 4),
                 error => this.errorMessage = error         )
      
+   }
+   getCityWeatherData(city){
+     this.weatherDataService.getCityWeatherData(city)
+     .subscribe(data => this.weatherData = JSON.stringify(data,undefined, 4),
+     error => this.errorMessage = error         )
    }
 }

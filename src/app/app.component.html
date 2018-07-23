@@ -19,7 +19,7 @@
 </ul>
 <div>
 
-   
+   <input type="text" [(ngModel)] ='city'> <span>  &nbsp;   </span> <input type="button" value="SUBMIT" (click) ='getCityWeatherData(city)'>
   <pre style="background-color: aqua;border: 5px" >
       <p>{{errorMessage}}</p>
     {{weatherData }}

@@ -21,6 +21,7 @@ export class WeatherService {
   //Delcaring the config URL harc codded with London Data 
   //Later we will change the London data to our choice of city
   weatherDataUrl = 'https://api.openweathermap.org/data/2.5/find?q=London&APPID=0c31508c95be143d704e876cd1608c09';
+  weatherDataUrlCity : string;
 
 
   /**
@@ -38,6 +39,21 @@ export class WeatherService {
     .pipe( catchError(this.errorHandler));
   }
 
+  /**
+   * Function to get the data for our custom city 
+   * 1st: We have rewrite the URL
+   * 2nd Pass the URL in the get function
+   */
+  customCityUrl(city):string{
+    let Url1st = 'https://api.openweathermap.org/data/2.5/find?q=';
+    let Url2nd = '&APPID=0c31508c95be143d704e876cd1608c09';
+    return  this.weatherDataUrlCity = Url1st+city+Url2nd;
+  }
+  getCityWeatherData(city):Observable<any>{
+    this.customCityUrl(city);
+    return this.httpAgent.get(this.weatherDataUrlCity)
+    .pipe(catchError(this.errorHandler));
+  }
   errorHandler(error:HttpErrorResponse){
     
     return throwError(error.message || "ServerCommunication  Error")

@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 //Import the HttpClientModule module from angular common http
 import { HttpClientModule } from '@angular/common/http';
+//Importing forms module for ngModel
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { NewComponent } from './new/new.component';
@@ -16,7 +18,8 @@ import { NewComponent } from './new/new.component';
  
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
