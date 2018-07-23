@@ -6,14 +6,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { NewComponent } from './new/new.component';
+
 
 
 //Now using the imported HttpClientModule from angular common http
 @NgModule({
   declarations: [
-    AppComponent,
-    NewComponent
+    AppComponent
+    
   ],
  
   imports: [
