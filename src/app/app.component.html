@@ -1,5 +1,5 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
+<!-- <div style="text-align:center">
   <h1>
     Welcome to {{ title }}!
   </h1>
@@ -16,10 +16,55 @@
   <li>
     <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
   </li>
-</ul>
-<div>
-  <pre style="background-color: aqua;border: 5px" >
+</ul> -->
+<div class="container">
+  <div class="row">
+    <div class="col-sm-7"  style="overflow: scroll;height: 100vh">
+      <h1>City Details</h1>
+      <p>{{cityListError}}</p>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">NAME</th>
+            <th scope="col">COUNTRY</th>
+            <th scope="col">LON</th>
+            <th scope="col">LAT</th>
+          </tr>
+        </thead>
+        <tbody *ngFor='let runner of cityList'>
+          <tr>
+            {{runner.id}}
+            <td>
+              {{runner.name}}
+            </td>
+            <td>
+              {{runner.country}}
+            </td>
+            <td>
+              {{runner.coord.lon}}
+            </td>
+            <td>
+              {{runner.coord.lat}}
+            </td>
+
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-sm-5" style="margin-top: 10px ;overflow: scroll;height: 100vh" >
+      &nbsp;
+      <label>City Name:</label>
+      <input type="text" [(ngModel)]='city'>
+      <span> &nbsp; </span>
+      <input type="button" value="SUBMIT" (click)='getCityWeatherData(city)'>
+      <span> &nbsp; </span>
+      <input type="reset" (click)='dataReset()'>
+      <pre style="background-color: aqua;border: 5px">
+      <p>{{errorMessage}}</p>
     {{weatherData }}
   </pre>
-</div>
-
+    </div>
+  </div>
