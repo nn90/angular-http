@@ -35,7 +35,7 @@
         <tbody *ngFor='let runner of cityList'>
           <tr>
             {{runner.id}}
-            <td>
+            <td (click) = 'getCityWeatherData(runner.name)'>
               {{runner.name}}
             </td>
             <td>
@@ -57,7 +57,7 @@
     <div class="col-sm-5" style="margin-top: 10px ;overflow: scroll;height: 100vh" >
       &nbsp;
       <label>City Name:</label>
-      <input type="text" [(ngModel)]='city'>
+      <input type="text" [(ngModel)]='city' placeholder="London">
       <span> &nbsp; </span>
       <input type="button" value="SUBMIT" (click)='getCityWeatherData(city)'>
       <span> &nbsp; </span>
